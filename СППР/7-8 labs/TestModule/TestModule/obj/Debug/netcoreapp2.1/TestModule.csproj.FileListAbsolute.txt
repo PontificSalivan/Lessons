@@ -1,0 +1,24 @@
+D:\Lessons\PPR\TestModule\TestModule\TestModule\bin\Debug\netcoreapp2.1\TestModule.deps.json
+D:\Lessons\PPR\TestModule\TestModule\TestModule\bin\Debug\netcoreapp2.1\TestModule.dll
+D:\Lessons\PPR\TestModule\TestModule\TestModule\bin\Debug\netcoreapp2.1\TestModule.pdb
+D:\Lessons\PPR\TestModule\TestModule\TestModule\bin\Debug\netcoreapp2.1\OSMLSGlobalLibrary.dll
+D:\Lessons\PPR\TestModule\TestModule\TestModule\bin\Debug\netcoreapp2.1\OSMLSGlobalLibrary.pdb
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.csproj.CoreCompileInputs.cache
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.AssemblyInfoInputs.cache
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.AssemblyInfo.cs
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.csproj.CopyComplete
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.dll
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.pdb
+D:\Lessons\PPR\TestModule\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.csprojAssemblyReference.cache
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\bin\Debug\netcoreapp2.1\TestModule.deps.json
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\bin\Debug\netcoreapp2.1\TestModule.dll
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\bin\Debug\netcoreapp2.1\TestModule.pdb
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\bin\Debug\netcoreapp2.1\OSMLSGlobalLibrary.dll
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\bin\Debug\netcoreapp2.1\OSMLSGlobalLibrary.pdb
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.csprojAssemblyReference.cache
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.csproj.CoreCompileInputs.cache
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.AssemblyInfoInputs.cache
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.AssemblyInfo.cs
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.csproj.CopyComplete
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.dll
+D:\Lessons\PPR\7-8 labs\TestModule\TestModule\obj\Debug\netcoreapp2.1\TestModule.pdb

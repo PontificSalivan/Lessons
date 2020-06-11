@@ -75,10 +75,5 @@ def main():
   total = end - start
   print(total)
 
-
-
-
-
-
 if __name__ == '__main__':
   main() 

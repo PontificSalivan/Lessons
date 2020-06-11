@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "/5DRmlPAoJKxMgmO/fUwEauFkQD05t5y0FUpShL968jZsFw1xIO6CVa7OazuMMOn8B9uHYGNgd6BSK2i1KWASg==",
+  "success": true,
+  "projectFilePath": "D:\\Lessons\\PPR\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jim\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\nettopologysuite\\2.0.0\\nettopologysuite.2.0.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\nettopologysuite.features\\2.0.0\\nettopologysuite.features.2.0.0.nupkg.sha512",
+    "C:\\Users\\Jim\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
