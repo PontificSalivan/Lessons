@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00c853</color>
+    <color name="colorPrimaryDark">#009624</color>
+    <color name="colorAccent">#5efc82</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="whiteBackground">#F8F8F8</color>
+    <color name="purpleLight">#40C9BBDF</color>
+    <color name="purple">#595FE1</color>
+
+    <color name="bigTextColor">#7D7D7D</color>
+    <color name="smallTextColor">#5E5E5E</color>
+    
+    <color name="colorPrimaryTransparent">#3300C853</color>
+</resources>
