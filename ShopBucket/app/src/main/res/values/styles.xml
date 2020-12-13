@@ -1,0 +1,33 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="Text">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/smallTextColor</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Text.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Input">
+        <item name="background">@drawable/input_background</item>
+    </style>
+
+    <style name="Text.Large">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/bigTextColor</item>
+    </style>
+
+    <style name="CardViewStyle">
+        <item name="android:elevation">4dp</item>
+        <item name="cardCornerRadius">30dp</item>
+    </style>
+</resources>

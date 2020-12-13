@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp">
+    android:layout_height="?attr/listPreferredItemHeight"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,10 +20,10 @@
             android:layout_marginBottom="4dp"
             android:textAppearance="@style/Text.Bold"
             app:layout_constraintBottom_toTopOf="@id/progressBar"
-            app:layout_constraintEnd_toStartOf="@id/itemCount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Вечеринка у Никиты" />
+            app:layout_constraintEnd_toStartOf="@id/itemCount"
+            tools:text="Вечеринка у Арсена" />
 
         <TextView
             android:id="@+id/itemCount"
@@ -36,12 +36,12 @@
             android:textAppearance="@style/Text.Bold"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@id/progressBar"
-            app:layout_constraintEnd_toStartOf="@id/delete"
+            app:layout_constraintEnd_toStartOf="@id/btnDelete"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="12 / 15" />
 
         <ImageButton
-            android:id="@+id/delete"
+            android:id="@+id/btnDelete"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
