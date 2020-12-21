@@ -7,19 +7,68 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.serma.dionysusproject.presentation.auth.registration.RegistrationFragment"
+        tools:layout="@layout/fragment_registration"
+        android:name="com.serma.shopbucket.presentation.auth.registration.RegistrationFragment"
         android:label="RegistrationFragment" >
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_purchaseListFragment"
+            app:destination="@id/purchaseListFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.serma.dionysusproject.presentation.auth.login.LoginFragment"
+        android:name="com.serma.shopbucket.presentation.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_purchaseListFragment"
+            app:destination="@id/purchaseListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/purchaseListFragment"
+        android:name="com.serma.shopbucket.presentation.purchase.PurchaseListFragment"
+        tools:layout="@layout/fragment_list"
+        android:label="PurchaseListFragment" >
+        <action
+            android:id="@+id/action_purchaseListFragment_to_purchaseAddFragment"
+            app:destination="@id/purchaseAddFragment" />
+        <action
+            android:id="@+id/action_purchaseListFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingListFragment"
+        tools:layout="@layout/fragment_shopping_list"
+        android:name="com.serma.shopbucket.presentation.shopping.ShoppingListFragment"
+        android:label="ShoppingListFragment" >
+        <argument
+            android:name="pos"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_shoppingListFragment_to_shoppingAddFragment"
+            app:destination="@id/shoppingAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingAddFragment"
+        android:name="com.serma.shopbucket.presentation.shopping.ShoppingAddFragment"
+        android:label="ShoppingAddFragment" >
+        <argument
+            android:name="pos"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <dialog
+        android:id="@+id/purchaseAddFragment"
+        android:name="com.serma.shopbucket.presentation.purchase.PurchaseAddFragment"
+        android:label="PurchaseAddFragment" >
+        <action
+            android:id="@+id/action_purchaseAddFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
+    </dialog>
 </navigation>

@@ -16,4 +16,15 @@
     <string name="server_error">Ошибка сервера</string>
     <string name="nickname_already_exist">Такое имя пользователя уже существует</string>
     <string name="nickname_empty">Введите имя пользователя</string>
+    <string name="count">Количество</string>
+    <string name="price">Стоимость</string>
+    <string name="item_title">Название товара</string>
+    <string name="add">Добавить</string>
+    <string name="title">Название</string>
+    <string name="save">Сохранить</string>
+    <string name="add_puchase_name_hint">Имя похода за покупками</string>
+    <string name="delete_complete">Элемент успешно удалён</string>
+    <string name="error">Произошла ошибка</string>
+    <string name="logout">Выйти из аккаунта</string>
+    <string name="change_complete">Изменения сохранены</string>
 </resources>

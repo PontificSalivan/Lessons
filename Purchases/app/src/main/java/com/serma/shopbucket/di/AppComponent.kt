@@ -1,7 +1,11 @@
-package com.serma.dionysusproject.di
+package com.serma.shopbucket.di
 
 import android.app.Application
 import android.content.Context
+import com.serma.shopbucket.presentation.MainActivity
+import com.serma.shopbucket.presentation.purchase.PurchaseListFragment
+import com.serma.shopbucket.presentation.shopping.ShoppingAddFragment
+import com.serma.shopbucket.presentation.shopping.ShoppingListFragment
 import com.serma.shopbucket.provider.AppProvider
 import com.serma.shopbucket.provider.FacadeProvider
 import dagger.BindsInstance
@@ -14,9 +18,9 @@ interface AppComponent : FacadeProvider {
 
     companion object {
 
-        private var appComponent: AppProvider? = null
+        private var appComponent: AppComponent? = null
 
-        fun create(application: Application): AppProvider {
+        fun init(application: Application): AppComponent {
             return appComponent ?: DaggerAppComponent
                 .factory()
                 .create(application.applicationContext)
@@ -30,4 +34,6 @@ interface AppComponent : FacadeProvider {
     interface Factory {
         fun create(@BindsInstance context: Context): AppComponent
     }
+
+    fun inject(mainActivity: MainActivity)
 }

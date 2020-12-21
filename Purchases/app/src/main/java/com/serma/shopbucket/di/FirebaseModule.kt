@@ -1,4 +1,4 @@
-package com.serma.dionysusproject.di
+package com.serma.shopbucket.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

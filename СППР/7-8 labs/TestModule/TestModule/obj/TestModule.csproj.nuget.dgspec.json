@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Lessons\\PPR\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj": {}
+    "C:\\Programs\\Lessons\\Lessons\\СППР\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj": {}
   },
   "projects": {
-    "D:\\Lessons\\PPR\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj": {
+    "C:\\Programs\\Lessons\\Lessons\\СППР\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Lessons\\PPR\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj",
+        "projectUniqueName": "C:\\Programs\\Lessons\\Lessons\\СППР\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj",
         "projectName": "TestModule",
-        "projectPath": "D:\\Lessons\\PPR\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj",
+        "projectPath": "C:\\Programs\\Lessons\\Lessons\\СППР\\7-8 labs\\TestModule\\TestModule\\TestModule.csproj",
         "packagesPath": "C:\\Users\\Jim\\.nuget\\packages\\",
-        "outputPath": "D:\\Lessons\\PPR\\7-8 labs\\TestModule\\TestModule\\obj\\",
+        "outputPath": "C:\\Programs\\Lessons\\Lessons\\СППР\\7-8 labs\\TestModule\\TestModule\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"

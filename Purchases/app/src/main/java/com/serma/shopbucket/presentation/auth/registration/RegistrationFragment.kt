@@ -1,15 +1,17 @@
 package com.serma.shopbucket.presentation.auth.registration
 
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.serma.shopbucket.R
-import com.serma.shopbucket.ShopBucketApp
-import com.serma.shopbucket.data.remote.AuthState
+import com.serma.shopbucket.data.remote.contract.AuthState
+import com.serma.shopbucket.di.auth.AuthComponent
 import com.serma.shopbucket.di.factory.DaggerViewModelFactory
+import com.serma.shopbucket.domain.showToast
 import com.serma.shopbucket.presentation.auth.AuthValidationState
 import com.serma.shopbucket.presentation.base.BaseFragment
-import com.serma.shopbucket.presentation.mediator.RegistrationMediator
 import kotlinx.android.synthetic.main.fragment_login.emailEdt
 import kotlinx.android.synthetic.main.fragment_login.loginBtn
 import kotlinx.android.synthetic.main.fragment_login.passwordEdt
@@ -17,9 +19,6 @@ import kotlinx.android.synthetic.main.fragment_registration.*
 import javax.inject.Inject
 
 class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
-
-    @Inject
-    lateinit var registrationMediator: RegistrationMediator
 
     @Inject
     lateinit var registrationViewModelFactory: DaggerViewModelFactory
@@ -36,17 +35,13 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
                 AuthValidationState.SUCCESS -> return@observe
             }
         }
-        viewModel.validationNicknameState.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                NicknameValidationState.SUCCESS -> register()
-                NicknameValidationState.FAILURE_NICKNAME_ALREADY_EXIST -> showToast(R.string.nickname_already_exist)
-                NicknameValidationState.FAILURE -> showToast(R.string.server_error)
-                NicknameValidationState.FAILURE_EMPTY -> showToast(R.string.nickname_empty)
-            }
-        }
         viewModel.registrationState.observe(viewLifecycleOwner) { state ->
             when (state) {
-                AuthState.SUCCESS -> showToast(R.string.registration)
+                AuthState.SUCCESS -> {
+                    val navOptions =
+                        NavOptions.Builder().setPopUpTo(R.id.purchaseListFragment, true).build()
+                    findNavController().navigate(R.id.purchaseListFragment, null, navOptions)
+                }
                 AuthState.FAILURE -> showToast(R.string.server_error)
             }
         }
@@ -54,24 +49,25 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
 
     override fun initInputs(view: View) {
         registrationBtn.setOnClickListener {
-            viewModel.registration()
+            registration()
         }
         loginBtn.setOnClickListener {
-            registrationMediator.openLoginScreen()
+            findNavController().navigate(R.id.loginFragment)
         }
     }
 
-    private fun register() {
+    private fun registration() {
         val email = emailEdt.text.toString()
         val password = passwordEdt.text.toString()
         viewModel.registration(email, password)
     }
 
+    override fun initView() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+    }
+
     override fun initDagger() {
-        DaggerAuthComponent.factory().create(
-            findNavController(),
-            (requireActivity().application as ShopBucketApp).getAppComponent()
-        ).inject(this)
+        AuthComponent.init(requireActivity().application).inject(this)
         viewModel =
             ViewModelProvider(this, registrationViewModelFactory)[RegistrationViewModel::class.java]
     }

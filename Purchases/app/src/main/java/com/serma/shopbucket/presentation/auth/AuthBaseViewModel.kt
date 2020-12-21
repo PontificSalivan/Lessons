@@ -2,9 +2,10 @@ package com.serma.shopbucket.presentation.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.serma.shopbucket.data.remote.contract.NoAction
 import com.serma.shopbucket.presentation.base.BaseViewModel
 
-open class AuthBaseViewModel : BaseViewModel() {
+open class AuthBaseViewModel : BaseViewModel<NoAction>() {
 
     companion object {
         const val MIN_PASSWORD_LENGTH = 6

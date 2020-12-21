@@ -2,10 +2,8 @@ package com.serma.shopbucket.presentation.auth.registration
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.serma.shopbucket.data.Failure
-import com.serma.shopbucket.data.Success
-import com.serma.shopbucket.data.remote.AuthState
-import com.serma.shopbucket.domain.usecase.RegistrationUseCase
+import com.serma.shopbucket.data.remote.contract.AuthState
+import com.serma.shopbucket.domain.usecase.auth.RegistrationUseCase
 import com.serma.shopbucket.presentation.auth.AuthBaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -26,14 +24,11 @@ class RegistrationViewModel @Inject constructor(
             val disposable = registrationUseCase(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { response ->
-                    when (response) {
-                        is Success -> _registrationState.value = response.result
-                        is Failure -> _registrationState.value =
-                            AuthState.FAILURE
-                    }
+                .subscribe { result ->
+                    _registrationState.value = result
                 }
             compositeDisposable.add(disposable)
         }
     }
+
 }

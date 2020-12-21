@@ -1,26 +1,26 @@
 package com.serma.shopbucket.presentation.auth.login
 
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import com.serma.shopbucket.ShopBucketApp
 import com.serma.shopbucket.R
-import com.serma.shopbucket.data.remote.AuthState
+import com.serma.shopbucket.data.remote.contract.AuthState
+import com.serma.shopbucket.di.auth.AuthComponent
 import com.serma.shopbucket.di.auth.DaggerAuthComponent
 import com.serma.shopbucket.di.factory.DaggerViewModelFactory
+import com.serma.shopbucket.domain.showToast
 import com.serma.shopbucket.presentation.auth.AuthValidationState
 import com.serma.shopbucket.presentation.base.BaseFragment
-import com.serma.shopbucket.presentation.mediator.LoginMediator
 import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
 
 class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     @Inject
-    lateinit var loginMediator: LoginMediator
-
-    @Inject
     lateinit var loginViewModelFactory: DaggerViewModelFactory
+
     private lateinit var viewModel: LoginViewModel
 
     @Suppress("WHEN_ENUM_CAN_BE_NULL_IN_JAVA")
@@ -36,7 +36,11 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
         }
         viewModel.loginState.observe(viewLifecycleOwner) { state ->
             when (state) {
-                AuthState.SUCCESS -> showToast(R.string.enter)
+                AuthState.SUCCESS -> {
+                    val navOptions =
+                        NavOptions.Builder().setPopUpTo(R.id.purchaseListFragment, true).build()
+                    findNavController().navigate(R.id.purchaseListFragment, null, navOptions)
+                }
                 AuthState.FAILURE -> showToast(R.string.server_error)
             }
         }
@@ -49,15 +53,16 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
             viewModel.login(email, password)
         }
         registration.setOnClickListener {
-            loginMediator.openRegistrationScreen()
+            findNavController().navigate(R.id.registrationFragment)
         }
     }
 
+    override fun initView() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+    }
+
     override fun initDagger() {
-        DaggerAuthComponent.factory().create(
-            findNavController(),
-            (requireActivity().application as ShopBucketApp).getAppComponent()
-        ).inject(this)
+        AuthComponent.init(requireActivity().application).inject(this)
         viewModel = ViewModelProvider(this, loginViewModelFactory)[LoginViewModel::class.java]
     }
 }

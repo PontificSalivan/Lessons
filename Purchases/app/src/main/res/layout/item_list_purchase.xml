@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp">
+    android:layout_height="?attr/listPreferredItemHeight"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +18,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAppearance="@style/Text.Bold"
             app:layout_constraintBottom_toTopOf="@id/progressBar"
             app:layout_constraintEnd_toStartOf="@id/itemCount"
@@ -36,12 +38,12 @@
             android:textAppearance="@style/Text.Bold"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@id/progressBar"
-            app:layout_constraintEnd_toStartOf="@id/delete"
+            app:layout_constraintEnd_toStartOf="@id/btnDelete"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="12 / 15" />
 
         <ImageButton
-            android:id="@+id/delete"
+            android:id="@+id/btnDelete"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
@@ -49,6 +51,20 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/ic_delete_24"
+            app:layout_constraintBottom_toTopOf="@id/progressBar"
+            app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/ic_edit_24"
             app:layout_constraintBottom_toTopOf="@id/progressBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
