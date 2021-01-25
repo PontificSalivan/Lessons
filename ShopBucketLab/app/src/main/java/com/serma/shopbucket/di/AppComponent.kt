@@ -3,6 +3,10 @@ package com.serma.shopbucket.di
 import android.app.Application
 import android.content.Context
 import com.serma.shopbucket.presentation.MainActivity
+import com.serma.shopbucket.presentation.purchase.PurchaseListFragment
+import com.serma.shopbucket.presentation.shopping.ShoppingAddFragment
+import com.serma.shopbucket.presentation.shopping.ShoppingListFragment
+import com.serma.shopbucket.provider.AppProvider
 import com.serma.shopbucket.provider.FacadeProvider
 import dagger.BindsInstance
 import dagger.Component

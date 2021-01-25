@@ -1,5 +1,6 @@
 package com.serma.shopbucket.data.remote
 
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,6 +25,8 @@ class ShoppingRemoteSourceImpl @Inject constructor(
     override fun deleteShopping(
         idPurchase: String,
         idShopping: String,
+        price: Long,
+        count: Long,
         complete: Boolean
     ): Single<Response<NoAction>> {
         val ref = firebaseFirestore.collection("purchase").document(idPurchase)
@@ -32,17 +35,20 @@ class ShoppingRemoteSourceImpl @Inject constructor(
                 ref.update("total", FieldValue.increment(-1L))
             ).subscribeOn(Schedulers.io()),
             Single.just(
+                ref.update("totalPrice", FieldValue.increment(-1 * count * price))
+            ).subscribeOn(Schedulers.io()),
+            Single.just(
                 if (complete)
                     ref.update("progress", FieldValue.increment(-1L)).isSuccessful
                 else true
             ).subscribeOn(Schedulers.io())
-        ) { first, second ->
+        ) { first, second, _ ->
             Single.create { emitter: SingleEmitter<Response<NoAction>> ->
                 ref.collection("shopping")
                     .document(idShopping)
                     .delete()
                     .addOnCompleteListener { task ->
-                        if (task.isSuccessful && first.isSuccessful && second) {
+                        if (task.isSuccessful && first.isSuccessful && second.isSuccessful) {
                             emitter.onSuccess(Success(NoAction))
                         } else {
                             emitter.onSuccess(Failure(task.exception ?: Exception()))
@@ -60,23 +66,29 @@ class ShoppingRemoteSourceImpl @Inject constructor(
         price: Long
     ): Single<Response<NoAction>> {
         val ref = firebaseFirestore.collection("purchase").document(purchaseId)
-        return Single.create { emitter ->
-            ref.collection("shopping")
-                .document(shoppingId)
-                .update(
-                    mapOf(
-                        "name" to name,
-                        "count" to count,
-                        "price" to price
+        return Single.just(
+            ref.update(
+                "totalPrice", FieldValue.increment(price * count)
+            )
+        ).flatMap {
+            Single.create { emitter ->
+                ref.collection("shopping")
+                    .document(shoppingId)
+                    .update(
+                        mapOf(
+                            "name" to name,
+                            "count" to count,
+                            "price" to price
+                        )
                     )
-                )
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        emitter.onSuccess(Success(NoAction))
-                    } else {
-                        emitter.onSuccess(Failure(task.exception!!))
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            emitter.onSuccess(Success(NoAction))
+                        } else {
+                            emitter.onSuccess(Failure(task.exception!!))
+                        }
                     }
-                }
+            }
         }
     }
 
@@ -122,8 +134,14 @@ class ShoppingRemoteSourceImpl @Inject constructor(
         price: Long
     ): Single<Response<NoAction>> {
         val ref = firebaseFirestore.collection("purchase").document(purchaseId)
-        return Single.just(
-            ref.update("total", FieldValue.increment(1L))
+        return Single.zip(
+            Single.just(
+                ref.update(
+                    "totalPrice", FieldValue.increment(price * count)
+                )
+            ), Single.just(
+                ref.update("total", FieldValue.increment(1L))
+            ), ::Pair
         ).flatMap {
             Single.create { emitter ->
                 val shopping =
@@ -136,7 +154,7 @@ class ShoppingRemoteSourceImpl @Inject constructor(
                 ref.collection("shopping")
                     .add(shopping)
                     .addOnCompleteListener { task ->
-                        if (task.isSuccessful && it.isSuccessful) {
+                        if (task.isSuccessful && it.first.isSuccessful && it.second.isSuccessful) {
                             emitter.onSuccess(Success(NoAction))
                         } else {
                             emitter.onSuccess(Failure(task.exception!!))

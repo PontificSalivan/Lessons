@@ -6,6 +6,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.serma.shopbucket.data.Failure
 import com.serma.shopbucket.data.Response
 import com.serma.shopbucket.data.Success
+import com.serma.shopbucket.data.remote.contract.AuthState
 import com.serma.shopbucket.data.remote.contract.NoAction
 import com.serma.shopbucket.data.remote.contract.PurchaseRemoteSource
 import com.serma.shopbucket.domain.entity.Purchase
